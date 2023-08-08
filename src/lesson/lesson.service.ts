@@ -1,9 +1,10 @@
 import { Injectable } from '@nestjs/common';
 import { InjectRepository } from '@nestjs/typeorm';
 import { Lesson } from './lesson.entity';
-import { MongoRepository } from 'typeorm';
+import { DeleteResult, MongoRepository } from 'typeorm';
 import { v4 as uuid } from 'uuid';
 import { CreateLessonInput } from './lesson.input';
+import { Document } from 'mongodb'
 
 @Injectable()
 export class LessonService {
@@ -29,6 +30,12 @@ export class LessonService {
       students,
     });
     return this.lessonRepo.save(lesson);
+  }
+
+  async deleteLesson(id: string): Promise<Lesson> {
+    const lesson = await this.lessonRepo.findOne({where: {id}});
+    const result = await this.lessonRepo.remove(lesson);
+    return lesson;
   }
 
   async assignStudentsToLesson(lessonId: string, studentIds: string[]): Promise<Lesson> {
