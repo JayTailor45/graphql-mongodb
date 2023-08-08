@@ -7,6 +7,9 @@ services:
     environment:
       MONGO_INITDB_ROOT_USERNAME: root
       MONGO_INITDB_ROOT_PASSWORD: password
+    volumes:
+      - mongo-graphql-db:/data/db
+      - mongo-graphql-db-config:/data/configdb
 
   mongo-express:
     container_name: mongo-admin
@@ -35,3 +38,7 @@ services:
       - /usr/src/app/node_modules
     ports:
       - '3000:3000'
+
+volumes:
+  mongo-graphql-db:
+  mongo-graphql-db-config:
