@@ -31,6 +31,12 @@
 ```bash
 $ npm install
 ```
+## Running the app with docker compose
+
+```bash
+# to start the project
+$ docker compose up
+```
 
 ## Running the app
 
@@ -57,6 +63,10 @@ $ npm run test:e2e
 # test coverage
 $ npm run test:cov
 ```
+
+## Accessing the site
+- Graphql Playground - [http://localhost:3000](http://localhost:3000)
+- Mongo Express UI - [http://0.0.0.0:8081](http://0.0.0.0:8081)
 
 ## Support
 
