@@ -38,6 +38,8 @@ $ npm install
 $ docker compose up
 ```
 
+> Info: Need to create a database with `school` as a name in order to run the backend
+
 ## Running the app
 
 ```bash
