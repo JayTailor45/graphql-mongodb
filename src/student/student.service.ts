@@ -12,6 +12,10 @@ export class StudentService {
         @InjectRepository(Student) private studentRepo: Repository<Student>,
     ) {}
 
+    async getStudents(): Promise<Student[]> {
+        return this.studentRepo.find();
+    }
+
     async createStudent(createStudentInput: CreateStudentInput): Promise<Student> {
         const {firstName, lastName} = createStudentInput;
         const student = this.studentRepo.create({
